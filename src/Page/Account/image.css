@@ -1,0 +1,24 @@
+input[type="file"]{
+
+    display: none;
+}
+#uploadImage{
+    display: inline-block;
+}
+
+input[type="file"] {
+
+    display: none;
+}
+
+#uploadImage2 {
+    display: inline-block;
+}
+input[type="file"] {
+
+    display: none;
+}
+
+#uploadImage3 {
+    display: inline-block;
+}
