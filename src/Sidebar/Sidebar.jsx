@@ -58,14 +58,14 @@ const Sidebar = () => {
                                     Ranking
                                 </Link>
                             </li>
-                            <li className="9 px-p_md py-p_xs hover:cursor-pointer  duration-200  py-pt_primary bg-bg_state text-_black px-pl_primary rounded-rounded_primary">
+                            {/* <li className="9 px-p_md py-p_xs hover:cursor-pointer  duration-200  py-pt_primary bg-bg_state text-_black px-pl_primary rounded-rounded_primary">
                                 <Link
                                     to="/home"
                                     className="flex items-center gap-g_xs text-text_sm"
                                 >
                                     Home
                                 </Link>
-                            </li>
+                            </li> */}
                             <li className="9 px-p_md py-p_xs hover:cursor-pointer  duration-200  py-pt_primary bg-bg_state text-_black px-pl_primary rounded-rounded_primary">
                                 <Link
                                     to="/nextPage"

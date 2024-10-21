@@ -363,3 +363,37 @@ input[type="checkbox"]::after {
 input[type="checkbox"]:checked::after {
   opacity: 1;
 }
+/* for registration */
+ .form-section {
+   padding: 20px;
+   border: 1px solid #dee2e6;
+   margin-bottom: 20px;
+ }
+
+ .form-title {
+   background-color: #6f42c1;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   margin-bottom: 20px;
+ }
+
+ .passport-photo {
+   border: 1px solid #6f42c1;
+   padding: 10px;
+   text-align: center;
+   width: 150px;
+   height: 200px;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+ .section-title {
+   font-weight: bold;
+   margin-bottom: 10px;
+ }
+
+ .form-footer {
+   margin-top: 20px;
+   text-align: center;
+ }

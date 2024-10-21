@@ -4,12 +4,12 @@ import { OrderContext } from "../../ContextAPIs/OrderProvider";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const [product, setProduct] = useState([]);
+  const [Course, setCourse] = useState([]);
   const { cartCall } = useContext(OrderContext);
 
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem("productDraft")) || [];
-    setProduct(items);
+    const items = JSON.parse(localStorage.getItem("CourseDraft")) || [];
+    setCourse(items);
   }, [cartCall]);
 
   return (
@@ -20,7 +20,7 @@ const Cart = () => {
       >
         <FaShoppingCart className="text-text_xl z-10" />
         <div className="absolute -top-4 -left-4 bg-text_secondary flex items-center justify-center h-8 w-8 rounded-full">
-          {product.length}
+          {Course.length}
         </div>
       </Link>
     </>

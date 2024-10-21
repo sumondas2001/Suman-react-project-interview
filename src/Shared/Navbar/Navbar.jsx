@@ -93,7 +93,7 @@ const Navbar = () => {
             </li>
             <li className="relative group">
               <p className="text-text_secondary mb-0 font-semibold text-text_md flex items-center">
-                Products{" "}
+                Courses{" "}
                 <span>
                   <MdKeyboardArrowDown className="text-text_secondary text-text_lg" />
                 </span>
@@ -121,7 +121,7 @@ const Navbar = () => {
             </li>
             <li className="relative group">
               <p className="text-text_secondary mb-0 font-semibold text-text_md flex items-center">
-                Industrial Product{" "}
+                Industrial Course{" "}
                 <span>
                   <MdKeyboardArrowDown className="text-text_secondary text-text_lg" />
                 </span>
@@ -185,10 +185,10 @@ const Navbar = () => {
             </li>
             <li className="w-[100px]">
               <NavLink
-                to="/hotProduct"
+                to="/hotCourse"
                 className={`text-text_secondary font-semibold text-text_md hover:text-color_blue duration-300`}
               >
-                Hot Product
+                Hot Course
               </NavLink>
             </li>
           </ul>

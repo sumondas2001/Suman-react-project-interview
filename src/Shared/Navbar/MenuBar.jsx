@@ -45,17 +45,7 @@ const MenuBar = () => {
                 Overview
               </p>
             <ul className="overflow-hidden transition-all duration-500 ease-in-out font_sans">
-              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
-                onClick={() => handleClick('/')}>
-                <Link to='/' className="  flex items-center gap-gap_6px py-pt_primary">
-                  <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
-                    <HiUserGroup />
-                  </span>
-                  <span className="text-text_md font_sans font-medium ">
-                    Home
-                  </span>
-                </Link>
-              </li>
+             
               <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/course' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
                 onClick={() => handleClick('/course')}>
                 <Link to='/course' className="flex items-center  gap-gap_6px py-pt_primary">
@@ -67,29 +57,71 @@ const MenuBar = () => {
                   </span>
                 </Link>
               </li>
-              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200  ${selected === '/about' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
-                onClick={() => handleClick('/about')}>
-                <Link to='/about' className="flex items-center gap-gap_6px py-pt_primary">
+              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200  ${selected === '/cart' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
+                onClick={() => handleClick('/cart')}>
+                <Link to='/cart' className="flex items-center gap-gap_6px py-pt_primary">
                   <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
                     <MdLibraryBooks />
                   </span>
                   <span className="text-text_md font_sans font-medium ">
-                    About
+                    Cart
+                  </span>
+                </Link>
+              </li>
+              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200  ${selected === '/checkout' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
+                onClick={() => handleClick('/checkout')}>
+                <Link to='/checkout' className="flex items-center gap-gap_6px py-pt_primary">
+                  <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
+                    <MdLibraryBooks />
+                  </span>
+                  <span className="text-text_md font_sans font-medium ">
+                  Checkout
                   </span>
                 </Link>
               </li>
             
-              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/contacts' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
-                onClick={() => handleClick('/contacts')}>
-                <Link to='/contacts' className="flex items-center  gap-gap_6px py-pt_primary">
+              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/order-details' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
+                onClick={() => handleClick('/order-details')}>
+                <Link to='/order-details' className="flex items-center  gap-gap_6px py-pt_primary">
                   <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
                     <BiSolidDashboard />
                   </span>
                   <span className="text-text_md font_sans font-medium ">
-                    Contact
+                   Order Details
                   </span>
                 </Link>
               </li>
+              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/search' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
+                onClick={() => handleClick('/search')}>
+                <Link to='/search' className="flex items-center  gap-gap_6px py-pt_primary">
+                  <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
+                    <BiSolidDashboard />
+                  </span>
+                  <span className="text-text_md font_sans font-medium ">
+                    Search
+                  </span>
+                </Link>
+              </li>
+
+              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/instruction' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
+                onClick={() => handleClick('/instruction')}>
+                <a
+                  href="https://docs.google.com/document/d/1RhJ9HZBE5asf8se2yw8ZaLqCwVlSVe2ht8M7OhtJtX4/edit?tab=t.0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-gap_6px py-pt_primary"
+                >
+                  <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
+                    <BiSolidDashboard />
+                  </span>
+                  <span className="text-text_md font_sans font-medium ">
+                   Instructions
+                  </span>
+                </a>
+              </li>
+
+
+            
             </ul>
           </li>
    

@@ -40,6 +40,7 @@
     "react-select": "^5.8.0",
     "react-to-print": "^2.15.1",
     "react-toastify": "^10.0.5",
+    "react-tracking": "^9.3.2",
     "semantic-ui-react": "^2.1.5",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.11.0",

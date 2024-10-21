@@ -1,15 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
-import Home from "../Page/Home/Home";
 import Courses from "../Page/Courses/Courses";
-import About from "../Page/About/About";
-import Contact from "../Page/Contact/Contact";
-import Login from "../Page/Account/Login";
 import Admin_Dashboard from "../Admin_Dashboard/Admin_Dashboard";
 import General_Setting from "../Admin_Dashboard/General_Setting/General_Setting";
 import User_List from "../Admin_Dashboard/User_List/User_List";
 import User_Role from "../Admin_Dashboard/User_Role/User_Role";
-import Registration from "../Page/Account/Registration";
+import Cart from "../Page/Cart/Cart";
+import OrderDetails from "../Page/OrderDetails/OrderDetails";
+import Checkout from "../Page/Checkout/Checkout";
+import Search from "../Page/Search/Search";
 
 
 const Router = createBrowserRouter([
@@ -17,30 +16,30 @@ const Router = createBrowserRouter([
         path: '/',
         element: <Layout />,
         children: [
-            {
-                path: '/',
-                element: <Home />
-            },
+           
             {
                 path: '/course',
                 element: <Courses />
             },
             {
-                path: '/about',
-                element: <About></About>
+                path: '/cart',
+                element: <Cart></Cart>
             },
             {
-                path: '/contacts',
-                element: <Contact></Contact>
+                path: '/checkout',
+                element: <Checkout />
             },
             {
-                path : '/login',
-                element : <Login />
+                path: '/search',
+                element: <Search />
             },
             {
-                path : '/admission',
-                element : <Registration />
-            }
+                path : '/order-details',
+                element : <OrderDetails />
+            },
+
+           
+           
         ]
     },
     {
