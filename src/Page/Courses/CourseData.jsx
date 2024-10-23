@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { CartContext } from '../../ContextAPIs/CartProvider';
 const CourseData = ({ data }) => {
-     const { itemCount, setCartItem, setItemCount } = useContext(CartContext)
+     const { itemCount, cartItem, setCartItem, setItemCount } = useContext(CartContext)
      const { course_name, discount_price, photo, regular_price, id } = data;
      // console.log(data);
 
@@ -14,8 +14,9 @@ const CourseData = ({ data }) => {
 
 
      const handleAddCart = () => {
-          setItemCount(itemCount + 1)
           setCartItem(data)
+          const count = cartItem?.id == id ? itemCount + 1 : 1
+          setItemCount(count)
      }
 
 

@@ -16,7 +16,7 @@ const MenuBar = () => {
   const [selected, setSelected] = useState('');
   const location = useLocation();
   const [hasAccess] = useHasAccess();
-  const {setOpen} = useContext(OrderContext);
+  const { setOpen } = useContext(OrderContext);
   const [isSmallScreen] = useSmallScreen();
 
 
@@ -26,7 +26,7 @@ const MenuBar = () => {
 
   const handleClick = (path) => {
     setSelected(path);
-    if(isSmallScreen){
+    if (isSmallScreen) {
       setOpen(false)
     }
   };
@@ -41,11 +41,11 @@ const MenuBar = () => {
       <div className="flex flex-col justify-between padding_left padding_right ">
         <ul className="w-full">
           <li className="duration-200">
-              <p className="w-full duration-200 font-bold text-text_sm text-text_sidebar mt-mt_4px mb-mt_4px font_sans">
-                Overview
-              </p>
+            <p className="w-full duration-200 font-bold text-text_sm text-text_sidebar mt-mt_4px mb-mt_4px font_sans">
+              Overview
+            </p>
             <ul className="overflow-hidden transition-all duration-500 ease-in-out font_sans">
-             
+
               <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/course' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
                 onClick={() => handleClick('/course')}>
                 <Link to='/course' className="flex items-center  gap-gap_6px py-pt_primary">
@@ -68,7 +68,7 @@ const MenuBar = () => {
                   </span>
                 </Link>
               </li>
-              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200  ${selected === '/checkout' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
+              {/* <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200  ${selected === '/checkout' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
                 onClick={() => handleClick('/checkout')}>
                 <Link to='/checkout' className="flex items-center gap-gap_6px py-pt_primary">
                   <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
@@ -78,8 +78,8 @@ const MenuBar = () => {
                   Checkout
                   </span>
                 </Link>
-              </li>
-            
+              </li> */}
+
               <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/order-details' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
                 onClick={() => handleClick('/order-details')}>
                 <Link to='/order-details' className="flex items-center  gap-gap_6px py-pt_primary">
@@ -87,7 +87,7 @@ const MenuBar = () => {
                     <BiSolidDashboard />
                   </span>
                   <span className="text-text_md font_sans font-medium ">
-                   Order Details
+                    Order Details
                   </span>
                 </Link>
               </li>
@@ -115,37 +115,37 @@ const MenuBar = () => {
                     <BiSolidDashboard />
                   </span>
                   <span className="text-text_md font_sans font-medium ">
-                   Instructions
+                    Instructions
                   </span>
                 </a>
               </li>
 
 
-            
+
             </ul>
           </li>
-   
-         
+
+
           {hasAccess && <li className="duration-200">
-              <p className="w-full duration-200 font-bold text-text_sm text-text_sidebar mt-mt_4px mb-mt_4px font_sans">
-                Admin panel
-              </p>
+            <p className="w-full duration-200 font-bold text-text_sm text-text_sidebar mt-mt_4px mb-mt_4px font_sans">
+              Admin panel
+            </p>
             <ul className="overflow-hidden transition-all duration-500 ease-in-out font_sans">
-              {hasAccess?.some(item => item.name === 'member-list') && 
-              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/admin/member' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
-                onClick={() => handleClick('/admin/member')}>
-                <Link to='/admin/member' className="flex items-center gap-gap_6px py-pt_primary">
-                  <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
-                    <HiUserGroup />
-                  </span>
-                  <span className="text-text_md font_sans font-medium ">
-                    Member List
-                  </span>
-                </Link>
-              </li>}
-              
-             
-             
+              {hasAccess?.some(item => item.name === 'member-list') &&
+                <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/admin/member' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
+                  onClick={() => handleClick('/admin/member')}>
+                  <Link to='/admin/member' className="flex items-center gap-gap_6px py-pt_primary">
+                    <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
+                      <HiUserGroup />
+                    </span>
+                    <span className="text-text_md font_sans font-medium ">
+                      Member List
+                    </span>
+                  </Link>
+                </li>}
+
+
+
               {/* {hasAccess?.some(item => item.name === 'video-list') &&
               <li className={`py-pt_primary px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/admin/videoList' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
                 onClick={() => handleClick('/admin/videoList')}>
@@ -161,32 +161,32 @@ const MenuBar = () => {
             </ul>
           </li>}
           {hasAccess && <li className="group hover:cursor-pointer duration-200">
-           
+
             <ul className="overflow-hidden ml-ml_primary transition-all duration-500 ease-in-out">
               {hasAccess?.some(item => item.name === 'user-list') &&
-              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/admin/user' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
-                onClick={() => handleClick('/admin/user')}>
-                <Link to='/admin/user' className="flex items-center gap-gap_6px py-pt_primary">
-                  <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
-                    <FaUserAlt />
-                  </span>
-                  <span className="text-text_md font_sans font-medium">
-                  User List
-                  </span>
-                </Link>
-              </li>}
+                <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/admin/user' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
+                  onClick={() => handleClick('/admin/user')}>
+                  <Link to='/admin/user' className="flex items-center gap-gap_6px py-pt_primary">
+                    <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
+                      <FaUserAlt />
+                    </span>
+                    <span className="text-text_md font_sans font-medium">
+                      User List
+                    </span>
+                  </Link>
+                </li>}
               {hasAccess?.some(item => item.name === 'role-list') &&
-              <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/admin/roleList' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
-                onClick={() => handleClick('/admin/roleList')}>
-                <Link to='/admin/roleList' className="flex items-center  gap-gap_6px py-pt_primary">
-                  <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
-                    <IoSettingsSharp />
-                  </span>
-                  <span className="text-text_md font_sans font-medium">
-                    User Role
-                  </span>
-                </Link>
-              </li>}
+                <li className={` px-pt_8px my-mt_4px hover:cursor-pointer hover:rounded-rounded_primary hover: duration-200   ${selected === '/admin/roleList' ? 'bg-bg_selected rounded-rounded_primary text-white hover:text-white font-medium hover:bg-bg_selected ' : 'text-[#585c66] font-medium hover:text-[#585c66] hover:bg-slate-100 '}`}
+                  onClick={() => handleClick('/admin/roleList')}>
+                  <Link to='/admin/roleList' className="flex items-center  gap-gap_6px py-pt_primary">
+                    <span className="bg-bg_selected text-white p-pl_primary rounded-rounded_primary text-text_md">
+                      <IoSettingsSharp />
+                    </span>
+                    <span className="text-text_md font_sans font-medium">
+                      User Role
+                    </span>
+                  </Link>
+                </li>}
             </ul>
           </li>}
         </ul>
