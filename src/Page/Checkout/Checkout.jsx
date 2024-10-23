@@ -1,14 +1,55 @@
-import React from "react";
+import React, { useContext } from "react";
 import { RiDeleteBin5Line } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { CartContext } from "../../ContextAPIs/CartProvider";
 
 const Checkout = () => {
+    const { itemCount, cartItem, setItemCount, setOrderUser } = useContext(CartContext)
+
+    const navigate = useNavigate()
+
+
+    const handleMinus = () => {
+        if (itemCount > 1) {
+            setItemCount(itemCount - 1)
+        }
+    };
+
+    const handlePlus = () => {
+        setItemCount(itemCount + 1)
+    };
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault()
+
+        setOrderUser({
+            fullName: e.target.fullName.value,
+            formNo: e.target.formNo.value,
+            parentName: e.target.parentName.value,
+            parentNumber: e.target.parentNumber.value,
+            school: e.target.school.value,
+            jobInfo: e.target.jobInfo.value,
+            email: e.target.email.value,
+            gender: e.target.gender.value,
+            presentAddress: e.target.presentAddress.value,
+            permanentAddress: e.target.permanentAddress.value,
+            nid: e.target.nid.value,
+            mobile: e.target.mobile.value,
+            guardianName: e.target.guardianName.value,
+            dob: e.target.dob.value,
+            bloodGroup: e.target.bloodGroup.value,
+        })
+
+        navigate('/order-details')
+    }
+
+
     return (
         <div className="  mt-5 border mx-2">
-            <div class="bg-[#6f42c1] text-white p-6 text-center mb-5">
+            <div className="bg-[#6f42c1] text-white p-6 text-center mb-5">
                 <h2 className='text-5xl font-bold'>Trainee Admission Form</h2>
             </div>
-            <form className="bg-white shadow-md rounded-lg p-6">
+            <form className="bg-white shadow-md rounded-lg p-6" onSubmit={handleFormSubmit}>
                 {/* Trainee Information Section */}
                 <div className="form-section">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -18,6 +59,7 @@ const Checkout = () => {
                                 type="text"
                                 id="fullName"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="fullName"
                             />
                         </div>
                         <div>
@@ -26,6 +68,7 @@ const Checkout = () => {
                                 type="text"
                                 id="formNo"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="formNo"
                             />
                         </div>
                     </div>
@@ -37,6 +80,7 @@ const Checkout = () => {
                                 type="text"
                                 id="parentName"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="parentName"
                             />
                         </div>
                         <div>
@@ -45,6 +89,7 @@ const Checkout = () => {
                                 type="text"
                                 id="parentNumber"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="parentNumber"
                             />
                         </div>
                     </div>
@@ -56,6 +101,7 @@ const Checkout = () => {
                                 type="text"
                                 id="school"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="school"
                             />
                         </div>
                         <div>
@@ -64,6 +110,7 @@ const Checkout = () => {
                                 type="text"
                                 id="jobInfo"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="jobInfo"
                             />
                         </div>
                     </div>
@@ -75,6 +122,7 @@ const Checkout = () => {
                                 type="email"
                                 id="email"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="email"
                             />
                         </div>
                         <div>
@@ -82,6 +130,7 @@ const Checkout = () => {
                             <select
                                 id="gender"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="gender"
                             >
                                 <option value="" disabled selected>Select Gender</option>
                                 <option value="Female">Female</option>
@@ -97,6 +146,7 @@ const Checkout = () => {
                             <textarea
                                 id="presentAddress"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="presentAddress"
                             />
                         </div>
                         <div>
@@ -104,6 +154,7 @@ const Checkout = () => {
                             <textarea
                                 id="permanentAddress"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="permanentAddress"
                             />
                         </div>
                     </div>
@@ -115,6 +166,7 @@ const Checkout = () => {
                                 type="text"
                                 id="nid"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="nid"
                             />
                         </div>
                         <div>
@@ -123,6 +175,7 @@ const Checkout = () => {
                                 type="text"
                                 id="mobile"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="mobile"
                             />
                         </div>
                     </div>
@@ -134,6 +187,7 @@ const Checkout = () => {
                                 type="text"
                                 id="guardianName"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="guardianName"
                             />
                         </div>
                         <div>
@@ -142,6 +196,7 @@ const Checkout = () => {
                                 type="date"
                                 id="dob"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="dob"
                             />
                         </div>
                     </div>
@@ -152,6 +207,7 @@ const Checkout = () => {
                             <select
                                 id="bloodGroup"
                                 className="w-full border border-gray-300 rounded-md p-2"
+                                name="bloodGroup"
                             >
                                 <option value="" disabled selected>Select Blood Group</option>
                                 <option value="A+">A+</option>
@@ -197,53 +253,40 @@ const Checkout = () => {
                                             <td>
                                                 <div className="flex items-center justify-center ">
                                                     <div className="w-[20%] text-center flex items-center justify-center ">
-                                                        <RiDeleteBin5Line
-                                                            className="text-xl hover:text-footer_color cursor-pointer"
-
-                                                        />
+                                                        <RiDeleteBin5Line className="text-xl hover:text-footer_color cursor-pointer" />
                                                     </div>
-                                                    <div className="flex flex-col text-center justify-center items-center py-2  w-[80%]">
+                                                    <div className="flex flex-col text-center justify-center items-center py-2 w-[80%]">
                                                         <div className="mask">
-                                                            <img
-                                                                className="h-[40px] w-[70px]"
-                                                                src=''
-                                                                alt='Course'
-                                                            />
+                                                            <img className="h-[40px] w-[70px]" src={cartItem?.photo} alt='Course' />
                                                         </div>
                                                         <p className="text-[14.4px] px-[7px] text-center flex ">
-                                                            Course name  <span className="hidden lg:flex ">- unit name</span>
+                                                            {cartItem?.course_name} <span className="hidden lg:flex ">- unit name</span>
                                                         </p>
                                                     </div>
-
                                                 </div>
                                             </td>
                                             <td>
                                                 <p className="text-[14.4px] font-bold p-[7px] text-black text-center">
-                                                    discount price
+                                                    {cartItem?.discount_price} Tk
                                                 </p>
                                             </td>
                                             <td>
                                                 <div className="flex justify-center">
                                                     <div className="border">
-                                                        <button
-                                                            className="px-4 w-[30px] font-bold font_standard my-1.5"
-
-                                                        >
+                                                        <button type="button" onClick={handleMinus} className="px-4 w-[30px] font-bold my-1.5">
                                                             -
                                                         </button>
                                                     </div>
                                                     <div className="border-y">
                                                         <input
                                                             type="number"
-                                                            className="font-bold w-[30px] lg:w-[60px] font_standard px-2 text-center mx-auto h-full"
-
+                                                            value={itemCount}
+                                                            readOnly
+                                                            className="font-bold w-[30px] lg:w-[60px] text-center mx-auto h-full"
                                                         />
                                                     </div>
                                                     <div className="border">
-                                                        <button
-                                                            className="px-4 w-[30px] font-bold font_standard my-1.5"
-
-                                                        >
+                                                        <button type="button" onClick={handlePlus} className="px-4 w-[30px] font-bold my-1.5">
                                                             +
                                                         </button>
                                                     </div>
@@ -251,8 +294,7 @@ const Checkout = () => {
                                             </td>
                                             <td>
                                                 <p className="text-[14.4px] font-bold p-[7px] text-black text-center">
-
-                                                    discount price * quantity
+                                                    {cartItem?.discount_price * itemCount} Tk
                                                 </p>
                                             </td>
                                         </tr>
@@ -268,17 +310,17 @@ const Checkout = () => {
                                     <div className="py-3 flex justify-between border-b border-gray-300">
                                         <p className="text-black font-bold">Total Price</p>
                                         <p className="text-black font-bold">
-
+                                            {cartItem?.discount_price * itemCount} Tk
                                         </p>
                                     </div>
 
-                                    <Link
-
-                                        state={"bdt"}
+                                    <button
+                                        type="submit"
+                                        // state={"bdt"}
                                         className="font-medium text-black mb-2 border-2 hover:bg-[#D2C5A2] duration-300 py-2 px-4  block text-center mx-auto w-full"
                                     >
                                         Submit
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -286,8 +328,8 @@ const Checkout = () => {
                 </div>
             </form>
 
-           
-        </div>
+
+        </div >
     );
 };
 
