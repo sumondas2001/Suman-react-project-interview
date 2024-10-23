@@ -2,7 +2,12 @@
 
 const CourseData = ({ data }) => {
      const { course_name, discount_price, photo, regular_price, } = data;
-     console.log(data)
+     console.log(data);
+
+
+     const regularPrice = regular_price - discount_price;
+     const discount = regularPrice / regular_price * 100;
+     const discountPrice = parseInt(discount)
      return (
           <div className="m-mt_16px">
 
@@ -39,7 +44,7 @@ const CourseData = ({ data }) => {
                          <div className="mt-4 flex justify-between items-center">
                               <div>
                                    <span className="line-through text-gray-400 text-sm">Tk {regular_price}</span>
-                                   <span className="text-green-600 text-md font-bold ml-2">-70% (calculate from regular-discount price)</span>
+                                   <span className="text-green-600 text-md font-bold ml-2">-{discountPrice} % </span>
                                    <span className="text-black text-lg font-bold ml-2">Tk {discount_price}</span>
                               </div>
                               {/* <span className="text-green-600 text-sm">Earn Tk 48</span> */}
