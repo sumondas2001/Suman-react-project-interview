@@ -16,7 +16,7 @@ const Login = () => {
     const info = { mobile: phone, password };
 
     try {
-      const res = await axiosPublic.post("/api/login", info);
+      const res = await axiosPublic.post("https://itder.com/login", info);
       if (res.data) {
         toast.success(res.data.message);
         localStorage.setItem("token", res.data.access_token);

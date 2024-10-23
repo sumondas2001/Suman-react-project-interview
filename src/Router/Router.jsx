@@ -9,6 +9,7 @@ import Cart from "../Page/Cart/Cart";
 import OrderDetails from "../Page/OrderDetails/OrderDetails";
 import Checkout from "../Page/Checkout/Checkout";
 import Search from "../Page/Search/Search";
+import Login from "../Pages/Login/Login";
 
 
 const Router = createBrowserRouter([
@@ -16,7 +17,7 @@ const Router = createBrowserRouter([
         path: '/',
         element: <Layout />,
         children: [
-           
+
             {
                 path: '/course',
                 element: <Courses />
@@ -34,12 +35,16 @@ const Router = createBrowserRouter([
                 element: <Search />
             },
             {
-                path : '/order-details',
-                element : <OrderDetails />
+                path: '/order-details',
+                element: <OrderDetails />
             },
+            {
+                path: "/login",
+                element: <Login></Login>
+            }
 
-           
-           
+
+
         ]
     },
     {
@@ -58,10 +63,10 @@ const Router = createBrowserRouter([
                 path: 'user-role',
                 element: <User_Role></User_Role>
             }
-          
+
         ]
     }
-    
+
 ])
 
 export default Router;
