@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import axios from "axios";
 import { CartContext } from "../../ContextAPIs/CartProvider";
+import { toast } from "react-toastify";
 
 const Cart = () => {
     const { itemCount, cartItem, setItemCount } = useContext(CartContext)
@@ -100,7 +101,8 @@ const Cart = () => {
                                             {cartItem?.discount_price * itemCount} Tk
                                         </p>
                                     </div>
-                                    <Link
+                                    <Link onClick={() => { toast.success('Proceed to checkOut Successfully ') }}
+
                                         to={`/checkout`}
                                         state={"bdt"}
                                         className="font-medium text-black mb-2 border-2 hover:bg-[#D2C5A2] duration-300 py-2 px-4 block text-center mx-auto w-full"

@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { CartContext } from '../../ContextAPIs/CartProvider';
+import { toast } from 'react-toastify';
 const CourseData = ({ data }) => {
      const { itemCount, cartItem, setCartItem, setItemCount } = useContext(CartContext)
      const { course_name, discount_price, photo, regular_price, id } = data;
@@ -57,7 +58,7 @@ const CourseData = ({ data }) => {
                               {/* <span className="text-green-600 text-sm">Earn Tk 48</span> */}
                          </div>
                          <div className="mt-4 flex gap-2">
-                              <button type="button" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-500 w-full font-bold text-md text-center" onClick={handleAddCart}>
+                              <button onClick={() => { toast.success('card add Successfully ') }} type="button" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-500 w-full font-bold text-md text-center" onClick={handleAddCart}>
                                    Add To Cart
                               </button>
                          </div>

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../../ContextAPIs/CartProvider";
+import { toast } from "react-toastify";
 
 const Checkout = () => {
     const { itemCount, cartItem, setItemCount, setOrderUser } = useContext(CartContext)
@@ -314,7 +315,8 @@ const Checkout = () => {
                                         </p>
                                     </div>
 
-                                    <button
+                                    <button onClick={() => { toast.success('From Submit Successfully ') }}
+
                                         type="submit"
                                         // state={"bdt"}
                                         className="font-medium text-black mb-2 border-2 hover:bg-[#D2C5A2] duration-300 py-2 px-4  block text-center mx-auto w-full"

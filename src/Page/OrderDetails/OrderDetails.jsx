@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import TrackOrder from "./TrackOrder";
 import { CartContext } from "../../ContextAPIs/CartProvider";
+import { toast } from "react-toastify";
 
 
 const OrderDetails = () => {
     const { itemCount, cartItem, setItemCount, orderUser, setOrderUser } = useContext(CartContext)
+
 
 
     return (
@@ -126,34 +128,45 @@ const OrderDetails = () => {
                                     <td className="border text-center w-10 h-12 px-2">
                                         <img
                                             className=" w-full h-full object-cover mx-auto"
-                                            src=''
+                                            src={cartItem?.photo}
                                             alt=''
                                         />
                                     </td>
                                     <td className="lg:py-6 md:py-4 py-2 text-center border">
-                                        Course name
+                                        {cartItem?.course_name}
                                     </td>
                                     <td className="lg:py-6 md:py-4 py-2 text-center border">
-                                        Student name
+                                        {orderUser?.fullName}
                                     </td>
                                     <td className="lg:py-6 md:py-4 py-2 text-center border">
-                                        quantity
+                                        {itemCount}
                                     </td>
                                     <td className="lg:py-6 md:py-4 py-2 text-center border">
-                                        price
+                                        {cartItem?.discount_price}
                                     </td>
                                     <td className="lg:py-6 md:py-4 py-2 text-center border">
-                                        total price
+                                        {cartItem?.discount_price * itemCount}
                                     </td>
-                                </tr>
 
+                                </tr>
                             </tbody>
+
+
                         </table>
+                    </div>
+                    <div >
+                        <button onClick={() => { toast.success('Courses Order Successfully ') }}
+                            type="submit"
+
+                            className="font-medium bg-[#c5b27c] text-black mb-2 border-2 hover:bg-[#D2C5A2] duration-300 py-2 px-2  block text-center mx-auto w-full"
+                        >
+                            PROCEED TO CHECKOUT
+                        </button>
                     </div>
                 </div>
 
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

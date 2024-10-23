@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { OrderContext } from "../ContextAPIs/OrderProvider";
 import useSmallScreen from "../Hooks/useSmallScreen";
 import Copyright from "../Shared/Footer/Copyright";
+import { Toaster } from "react-hot-toast";
 
 const Layout = () => {
   const { open, sidebarRef } = useContext(OrderContext);
@@ -16,9 +17,8 @@ const Layout = () => {
         <div className=" flex items-start w-full">
           <div
             ref={sidebarRef}
-            className={`lg:relative fixed top-0 lg:top-0 ${
-              open ? "left-0" : "-left-[100%]"
-            } duration-300 w-[308px] z-50 h-[calc(100vh)] overflow-y-auto`}
+            className={`lg:relative fixed top-0 lg:top-0 ${open ? "left-0" : "-left-[100%]"
+              } duration-300 w-[308px] z-50 h-[calc(100vh)] overflow-y-auto`}
           >
             <MenuBar></MenuBar>
           </div>
@@ -29,7 +29,8 @@ const Layout = () => {
             <NavbarTop />
             <div className="overflow-y-auto h-[calc(100vh-52px)]">
               <div className="min-h-[calc(100vh-140px)]">
-              <Outlet />
+                <Outlet />
+                <Toaster />
               </div>
               <Copyright />
             </div>
