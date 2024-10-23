@@ -1,20 +1,26 @@
 
-
+import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { CartContext } from '../../ContextAPIs/CartProvider';
 const CourseData = ({ data }) => {
-     const { course_name, discount_price, photo, regular_price, } = data;
-     console.log(data);
+     const { itemCount, setCartItem, setItemCount } = useContext(CartContext)
+     const { course_name, discount_price, photo, regular_price, id } = data;
+     // console.log(data);
 
 
      const regularPrice = regular_price - discount_price;
      const discount = regularPrice / regular_price * 100;
-     const discountPrice = parseInt(discount)
+     const discountPrice = parseInt(discount);
+
+
+     const handleAddCart = () => {
+          setItemCount(itemCount + 1)
+          setCartItem(data)
+     }
+
+
      return (
           <div className="m-mt_16px">
-
-
-
-
-
 
                <div className=" bg-white shadow-lg rounded-lg overflow-hidden">
                     <div className="relative">
@@ -24,7 +30,7 @@ const CourseData = ({ data }) => {
                          </div>
                     </div>
                     <div className="">
-                         <h2 className="text-gray-800 text-lg font-semibold mb-2">{course_name}</h2>
+                         <h2 className="text-gray-800 text-lg mt-3 font-semibold mb-2">{course_name}</h2>
                          <div className="flex items-center justify-between mb-4">
 
                               <span className="flex text-blue-500 text-md">★★★★★</span>
@@ -50,8 +56,9 @@ const CourseData = ({ data }) => {
                               {/* <span className="text-green-600 text-sm">Earn Tk 48</span> */}
                          </div>
                          <div className="mt-4 flex gap-2">
-                              <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-500 w-full font-bold text-md">Add To Cart</button>
-
+                              <button type="button" className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-500 w-full font-bold text-md text-center" onClick={handleAddCart}>
+                                   Add To Cart
+                              </button>
                          </div>
                     </div>
                </div>
@@ -62,3 +69,8 @@ const CourseData = ({ data }) => {
 };
 
 export default CourseData;
+
+CourseData.propTypes = {
+
+     data: PropTypes.object,
+}
